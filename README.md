@@ -65,6 +65,8 @@ export class AuthService {
 
 --- spec file :
 
+> If the spec return `Undefined` ==> the variable send in request is different to the variable in backend . 
+
 ```typescript
 interface Post {
   userId: number;
