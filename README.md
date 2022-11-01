@@ -104,13 +104,6 @@ describe('AithService', ()=>{
 
 > What is Mock : It is fake data that the developer writes to ensure that the data it receives is the same as it wants.
 
---- service File :
-
-```typescript 
-
-
-```
-
 </br>
 </br>
 
