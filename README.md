@@ -267,9 +267,11 @@ describe('Component: Login', () => {
 </br> 
 </br>
 
->         // Simulates the asynchronous passage of time
-        tick(1);
+```typescript
+// Simulates the asynchronous passage of time
 
+tick(1);
+```
 
 
 
