@@ -36,7 +36,7 @@ fdescribe('create component and testing its functions', () => {
 </br>
 </br>
 
-## `Testing Service with http` :
+## `Testing Service post` :
 
 --- Auth Service:
 
@@ -96,3 +96,71 @@ describe('AithService', ()=>{
 });
 
 ```
+
+</br>
+</br>
+
+## `Testing Http Mock` :
+
+> What is Mock : It is fake data that the developer writes to ensure that the data it receives is the same as it wants.
+
+--- service File :
+
+```typescript 
+
+
+```
+
+</br>
+</br>
+
+--- spec File :
+
+```typescript 
+import {  HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+
+describe('AuthService with mock data', ()=>{
+  let service: AuthService;
+  let httpMock : HttpTestingController;  // imported from @angular/common/http/testing
+
+  const postMock = {
+    userId: 2,
+    id: 1,
+    title: "myTitle",
+    body: "myBody,"
+  }
+
+  beforeEach(() =>{
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule], // imported from @angular/common/http/testing
+    });
+    service = TestBed.inject(AuthService);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
+
+  it('getPost must get data as  expected', () => {
+    service.getPost(1).subscribe((data: Post) => {
+      console.log('data is' ,data);
+      expect(data).toEqual(postMock);
+    });
+    const req = httpMock.expectOne('https://jsonplaceholder.typicode.com/posts/1');
+    req.flush(postMock);
+    httpMock.verify();
+  });
+});
+
+```
+
+> Now if the data in response is diffrent to the form mocked (postMock here), the spec return error.
+
+
+
+
+
+
+
+
+
+
+
+
