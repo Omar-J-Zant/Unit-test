@@ -137,8 +137,8 @@ describe('AuthService with mock data', ()=>{
       expect(data).toEqual(postMock);
     });
     const req = httpMock.expectOne('https://jsonplaceholder.typicode.com/posts/1');
-    req.flush(postMock);
-    httpMock.verify();
+    req.flush(postMock);  // make the response equal to postMock .
+    httpMock.verify();   
   });
 });
 
