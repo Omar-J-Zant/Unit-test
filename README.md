@@ -32,3 +32,65 @@ fdescribe('create component and testing its functions', () => {
     });
   });
   ```
+
+</br>
+</br>
+
+## `Testing Service with http` :
+
+--- Auth Service:
+
+```typescript
+@Injectable({
+  providedIn: 'root',
+})
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+export class AuthService {
+  constructor(private http: HttpClient){}
+  getPost(postId: number): Observable<Post>
+{
+  return this.http.get<Post>(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+}}
+```
+
+
+</br>
+</br>
+
+
+--- spec file :
+
+```typescript
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+describe('AithService', ()=>{
+  let service: AuthService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+    });
+    service = TestBed.inject(AuthService);
+  });
+
+  it('should get the data successfully', (done:DoneFn) => {
+    service.getPost(1).subscribe((post:Post) =>{
+      console.log('data is ', post);
+      expect(post.id).toEqual(1);
+      done();
+    })
+  })
+});
+});
+
+```
