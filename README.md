@@ -279,6 +279,15 @@ tick(1);
 ```
 
 
+</br>
+</br>
+
+
+> Note::::   Can't bind to 'ngModel' since it isn't a known property of 'input' 
+> this messsage is shown when you testing an input has ngModel, so you want to import `FormsModule` library from `@angular/forms` .
+
+
+
 
 
 
