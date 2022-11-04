@@ -153,6 +153,11 @@ describe('AuthService with mock data', ()=>{
 
 --- This code is same to all three code below:
 
+
+>The async method still feels like we are working async code. So, Angular team provides another utility that make us feel we are writing synchronous code. This utility is fakeAsync. The use of fakeAsync is shown below. Note, that we used `tick` utility function as well. This is also Angular testing utility function. It simulates passage of time until all pending asynchronous activities finish. So, after dispatching the event we called `tick()` to wait for Angular to handle the event and take necessary action.
+
+
+
 ```typescript
 import { TestBed, async, whenStable, fakeAsync, tick, ComponentFixture } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
