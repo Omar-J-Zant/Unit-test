@@ -289,9 +289,13 @@ tick(1);
 > this messsage is shown when you testing an input has ngModel, so you want to import `FormsModule` library from `@angular/forms` .
 
 
+</br></br>
 
+[https://circleci.com/blog/continuous-integration-for-angular-applications/](CI) .
 
+</br></br>
 
+https://circleci.com/blog/continuous-integration-for-angular-applications/ 
 
 
 
